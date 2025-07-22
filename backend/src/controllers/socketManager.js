@@ -45,7 +45,7 @@ const connectToSocket=(server)=>{
         socket.on("chat-message",(data,sender)=>{
            const [matchingRoom,found]= Object.entries(connections)
            .reduce(([room,isFound],[roomKey,roomValue])=>{
-            if(!isFound && roomValue.include(socket.id)){
+            if(!isFound && roomValue.includes(socket.id)){
                 return [roomKey,true];
             }
             return [room,isFound];
